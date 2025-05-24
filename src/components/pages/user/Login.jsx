@@ -20,9 +20,6 @@ if(!email || !password){
 }
 else{
   try{
-// const response=await axios.post("http://localhost:3000/user/login",info,{
-//   withCredentials:true
-// });
 const response=await axios.post("https://task-back-rosy.vercel.app/user/login",info,{
   withCredentials:true
 });
@@ -31,7 +28,7 @@ if(data.success){
   mysuccess(data.message);
   setTimeout(() => {
     navigate("/alltasks");
-    localStorage.setItem("name",data.name);
+    // localStorage.setItem("name",data.name);
   }, 1000);
 }
 else{
@@ -51,14 +48,6 @@ setEmail("");
 setPassword("");
   }
 
-  // useEffect(()=>{
-  //   if(localStorage.getItem("name")){
-  //     myerror("you are alredy login");
-  //     setTimeout(()=>{
-  //       navigate("/dashbord");
-  //     },2000)
-  //   }
-  // },[])
     return (
     <div>
   <div>login</div>
