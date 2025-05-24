@@ -2,9 +2,12 @@ import {createSlice,createAsyncThunk} from "@reduxjs/toolkit"
 import axios from "axios"
 export const addTasks=createAsyncThunk("addTasks",async(info,thunkAPI)=>{
 try{
-const response=await axios.post("http://localhost:3000/dashbord/addtask",info,{
+const response=await axios.post("https://task-back-rosy.vercel.app/dashbord/addtask",info,{
     withCredentials:true
 });
+// const response=await axios.post("http://localhost:3000/dashbord/addtask",info,{
+//     withCredentials:true
+// });
 const data=await response.data;
 return data.data;
 }
@@ -22,7 +25,7 @@ return thunkAPI.rejectWithValue(message);
 //alltask
 export const allTasks=createAsyncThunk("allTasks",async(abcd,thunkAPI)=>{
 try{
-const response=await axios.post("http://localhost:3000/dashbord/alltask",{},{
+const response=await axios.post("https://task-back-rosy.vercel.app/dashbord/alltask",{},{
     withCredentials:true
 });
 const data=await response.data;
@@ -41,7 +44,7 @@ return thunkAPI.rejectWithValue(message);
 //delete
 export const deleteTask=createAsyncThunk("deleteTask",async(info,thunkAPI)=>{
 try{
-const response=await axios.post("http://localhost:3000/dashbord/deletetask",info,{
+const response=await axios.post("https://task-back-rosy.vercel.app/dashbord/deletetask",info,{
     withCredentials:true
 });
 const data=await response.data;
@@ -60,7 +63,7 @@ return thunkAPI.rejectWithValue(message);
 export const isDone=createAsyncThunk("isDone",async(info,thunkAPI)=>{
     console.log(info)
 try{
-const response=await axios.post("http://localhost:3000/dashbord/isdone",info,{
+const response=await axios.post("https://task-back-rosy.vercel.app/dashbord/isdone",info,{
     withCredentials:true
 });
 

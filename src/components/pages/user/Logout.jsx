@@ -7,10 +7,15 @@ function Logout() {
   const navigate=useNavigate();
   const handleLogout=async()=>{
 try{
-  const response=await axios.post("http://localhost:3000/user/logout",{}, 
+//   const response=await axios.post("http://localhost:3000/user/logout",{}, 
+//   {
+//   withCredentials:true
+// });
+  const response=await axios.post("https://task-back-rosy.vercel.app/user/logout",{}, 
   {
   withCredentials:true
 });
+
 const data=await response.data;
 if(data.success){
   mysuccess(data.message);
