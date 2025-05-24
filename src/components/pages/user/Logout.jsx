@@ -19,7 +19,7 @@ try{
 const data=await response.data;
 if(data.success){
   mysuccess(data.message);
-  localStorage.removeItem("name")
+  // localStorage.removeItem("name")
   setTimeout(() => {
     navigate("/")
   }, 1000);

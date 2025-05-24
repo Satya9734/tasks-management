@@ -51,14 +51,14 @@ setEmail("");
 setPassword("");
   }
 
-  useEffect(()=>{
-    if(localStorage.getItem("name")){
-      myerror("you are alredy login");
-      setTimeout(()=>{
-        navigate("/dashbord");
-      },2000)
-    }
-  },[])
+  // useEffect(()=>{
+  //   if(localStorage.getItem("name")){
+  //     myerror("you are alredy login");
+  //     setTimeout(()=>{
+  //       navigate("/dashbord");
+  //     },2000)
+  //   }
+  // },[])
     return (
     <div>
   <div>login</div>

@@ -29,7 +29,7 @@ const response=await axios.post("https://task-back-rosy.vercel.app/user/signin",
 const data=response.data;
 if(data.success){
 mysuccess(data.message);
-localStorage.setItem("name",data.name);
+// localStorage.setItem("name",data.name);
 setTimeout(() => {
   navigate("/alltasks")
 }, 2000);
