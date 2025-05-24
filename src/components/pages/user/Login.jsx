@@ -28,7 +28,6 @@ if(data.success){
   mysuccess(data.message);
   setTimeout(() => {
     navigate("/alltasks");
-    // localStorage.setItem("name",data.name);
   }, 1000);
 }
 else{

@@ -51,14 +51,7 @@ catch(err){
     setEmail("");
     setPassword("");
   }
- useEffect(()=>{
-    if(localStorage.getItem("name")){
-      myerror("you are alredy login");
-      setTimeout(()=>{
-        navigate("/dashbord");
-      },2000)
-    }
-  },[])
+
   return (
     <div className="signin-container">
       <div className="signin-header">Sign In</div>
