@@ -28,7 +28,6 @@ const response=await axios.post("https://task-back-rosy.vercel.app/user/signin",
 const data=response.data;
 if(data.success){
 mysuccess(data.message);
-// localStorage.setItem("name",data.name);
 setTimeout(() => {
   navigate("/alltasks")
 }, 2000);
@@ -51,6 +50,25 @@ catch(err){
     setEmail("");
     setPassword("");
   }
+  const loginCheck=async()=>{
+    const response=await axios.post("https://task-back-rosy.vercel.app/user/islogin",{},{
+      withCredentials:true
+    });
+    const data=await response.data;
+    console.log(data)
+    if(data.islogin==true){
+      myerror("you are alredy login");
+      setTimeout(()=>{
+        navigate("/alltasks");
+      },1500)
+    }
+  }
+
+
+  useEffect(()=>{
+    loginCheck();
+  })
+
 
   return (
     <div className="signin-container">
