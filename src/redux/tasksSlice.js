@@ -98,7 +98,7 @@ const tasksSlice=createSlice({
     extraReducers:(builder)=>{
 builder.addCase(addTasks.pending,(state,action)=>{
     state.loding=true
-    state.tasks=[]
+    // state.tasks=[]
     state.error=false
 })
 builder.addCase(addTasks.fulfilled,(state,action)=>{
