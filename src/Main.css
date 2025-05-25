@@ -856,7 +856,10 @@ span a:hover {
 
 /* Profile fixed at bottom */
 .sidebar-profile {
-  padding: 1rem;
+  padding-top: 0.2rem;
+  padding-bottom: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   border-top: 1px solid #555;
   text-align: center;
 }
