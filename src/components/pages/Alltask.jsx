@@ -75,8 +75,7 @@ return (
     <p>{loding ? "loading..." : ""}</p>
 
     <div className="task-container">
-      {tasks?.length > 0
-        ? tasks.map((task) => (
+      {tasks?tasks.map((task) => (
             <div key={task.id} className="task-box">
               <p>{task.title}</p>
               <p>{task.task}</p>

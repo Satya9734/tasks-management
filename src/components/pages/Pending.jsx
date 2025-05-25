@@ -54,7 +54,7 @@ function Pending() {
   }, []);
 
   useEffect(() => {
-    const filtered = tasks.filter((task) => !task.isdone);
+    const filtered = tasks?.filter((task) => !task.isdone);
     setPendingTasks(filtered);
   }, [tasks]);
 

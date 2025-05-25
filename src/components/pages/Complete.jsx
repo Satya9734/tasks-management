@@ -54,7 +54,7 @@ function Complete() {
   }, []);
 
   useEffect(() => {
-    const filtered = tasks.filter(task => task.isdone);
+    const filtered = tasks?.filter(task => task.isdone);
     setCompleteTasks(filtered);
   }, [tasks]);
 
