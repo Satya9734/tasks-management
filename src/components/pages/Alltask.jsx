@@ -75,7 +75,7 @@ return (
     <p>{loding ? "loading..." : ""}</p>
 
     <div className="task-container">
-      {tasks.length > 0
+      {tasks?.length > 0
         ? tasks.map((task) => (
             <div key={task.id} className="task-box">
               <p>{task.title}</p>
@@ -92,7 +92,7 @@ return (
         : ""}
     </div>
 
-    {tasks.length === 0 && (
+    {tasks?.length === 0 && (
       <div>
         You don't have any task{" "}
         <Link to="/dashbord">
