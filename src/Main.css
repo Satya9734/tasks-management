@@ -791,3 +791,9 @@ span a:hover {
 .signin-footer{
   margin-top: 0%;
 }
+
+.active-link {
+  color: #007bff;
+  font-weight: bold;
+  text-decoration: underline;
+}

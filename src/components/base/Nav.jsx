@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Nav = () => {
-  const userName = useSelector((state) => state.tasks.name)||localStorage.getItem("name");
+  const userName = useSelector((state) => state.tasks.name) || localStorage.getItem("name");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -22,12 +22,12 @@ const Nav = () => {
         </div>
 
         <nav className="sidebar-links">
-          <NavLink to="/" onClick={() => setIsMenuOpen(false)}>Home</NavLink>
-          <NavLink to="/dashbord" onClick={() => setIsMenuOpen(false)}>Dashbord</NavLink>
-          <NavLink to="/complete" onClick={() => setIsMenuOpen(false)}>Complete Tasks</NavLink>
-          <NavLink to="/pending" onClick={() => setIsMenuOpen(false)}>Pending Tasks</NavLink>
-          <NavLink to="/user" onClick={() => setIsMenuOpen(false)}>User</NavLink>
-          <NavLink to="/user/logout" onClick={() => setIsMenuOpen(false)}>Log out</NavLink>
+          <NavLink to="/" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => isActive ? 'active-link' : ''}>Home</NavLink>
+          <NavLink to="/dashbord" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => isActive ? 'active-link' : ''}>Dashbord</NavLink>
+          <NavLink to="/complete" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => isActive ? 'active-link' : ''}>Complete Tasks</NavLink>
+          <NavLink to="/pending" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => isActive ? 'active-link' : ''}>Pending Tasks</NavLink>
+          <NavLink to="/user" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => isActive ? 'active-link' : ''}>User</NavLink>
+          <NavLink to="/user/logout" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => isActive ? 'active-link' : ''}>Log out</NavLink>
         </nav>
 
         <div className="sidebar-profile">
