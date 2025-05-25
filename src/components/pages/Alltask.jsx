@@ -1,81 +1,67 @@
-import React, { useEffect } from 'react'
-import { useDispatch,useSelector } from 'react-redux'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { allTasks, deleteTask, isDone } from '../../redux/tasksSlice';
 import { myerror } from '../tost';
 import { Link, useNavigate } from 'react-router-dom';
+
 function Alltask() {
-  const navigate=useNavigate();
-  const dispatch=useDispatch();
-  const {loding,tasks,error}=useSelector((state)=>state.tasks)
- const fetchTasks=async()=>{
-  const abcd="";
-  try{
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { loding, tasks = [], error } = useSelector((state) => state.tasks); // default [] if undefined
 
-    await dispatch(allTasks(abcd)).unwrap();
-  }
-  catch(err){
-    myerror(err);
-    if(err=="fist you have to login."){
-      setTimeout(() => {
-       navigate("/user/login");
-      }, 1500);
+  const fetchTasks = async () => {
+    try {
+      await dispatch(allTasks("")).unwrap();
+    } catch (err) {
+      myerror(err);
+      if (err === "fist you have to login.") {
+        setTimeout(() => {
+          navigate("/user/login");
+        }, 1500);
+      }
     }
-  }
-  }
+  };
 
-  //delete
-  const handleDelete=async(id)=>{
-const info={
-  id:id
-}
-try{
+  const handleDelete = async (id) => {
+    try {
+      await dispatch(deleteTask({ id })).unwrap();
+      await fetchTasks(); // refetch after delete
+    } catch (err) {
+      myerror(err);
+      if (err === "fist you have to login.") {
+        setTimeout(() => {
+          navigate("/user/login");
+        }, 1500);
+      }
+    }
+  };
 
-  await dispatch(deleteTask(info)).unwrap();
-}
-catch(err){
-  myerror(err);
-  if(err=="fist you have to login."){
-    setTimeout(() => {
-     navigate("/user/login");
-    }, 1500);
-  }
-}
-  }
+  const handleIsDone = async (id, status) => {
+    try {
+      await dispatch(isDone({ id, status })).unwrap();
+      await fetchTasks(); // refetch after update
+    } catch (err) {
+      myerror(err);
+      if (err === "fist you have to login.") {
+        setTimeout(() => {
+          navigate("/user/login");
+        }, 1500);
+      }
+    }
+  };
 
+  useEffect(() => {
+    fetchTasks();
+  }, []);
 
-  //delete
-  const handleIsDone=async(id,status)=>{
-const info={
-  id:id,
-  status:status
-}
-try{
+  return (
+    <div>
+      <h3>My Tasks</h3>
+      <p>{loding ? "Loading..." : ""}</p>
 
-  await dispatch(isDone(info)).unwrap();
-}
-catch(err){
-  myerror(err);
-  if(err=="fist you have to login."){
-    setTimeout(() => {
-     navigate("/user/login");
-    }, 1500);
-  }
-}
-  }
-
-
-
-
-useEffect(()=>{
-fetchTasks();
-},[])
-return (
-  <div>
-    <h3>My Tasks</h3>
-    <p>{loding ? "loading..." : ""}</p>
-
-    <div className="task-container">
-      {tasks?tasks.map((task) => (
+      <div className="task-container">
+        {tasks.length > 0 &&
+          tasks.map((task) => (
             <div key={task.id} className="task-box">
               <p>{task.title}</p>
               <p>{task.task}</p>
@@ -87,20 +73,19 @@ return (
                 {task.isdone ? "DONE" : "PENDING"}
               </button>
             </div>
-          ))
-        : ""}
-    </div>
-
-    {tasks?.length === 0 && (
-      <div>
-        You don't have any task{" "}
-        <Link to="/dashbord">
-          Add some task
-        </Link>
+          ))}
       </div>
-    )}
-  </div>
-);
+
+      {tasks.length === 0 && (
+        <div>
+          You don't have any task{" "}
+          <Link to="/dashbord">
+            Add some task
+          </Link>
+        </div>
+      )}
+    </div>
+  );
 }
 
-export default Alltask
+export default Alltask;
