@@ -4,9 +4,12 @@ import { ToastContainer } from "react-toastify";
 import axios from "axios"
 import { myerror, mysuccess } from '../../tost';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setName } from '../../../redux/tasksSlice';
 function Signin() {
+  const dispatch=useDispatch();
   const navigate=useNavigate();
-  const [name, setName] = useState("");
+  const [name, setname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -23,13 +26,14 @@ if(!name || !email || !password){
 }
 else{
 try{
-const response=await axios.post("https://task-back-rosy.vercel.app/user/signin",info,{withCredentials:true});
-
+const response=await axios.post("http://localhost:3000/user/signin",info,{withCredentials:true});
 const data=response.data;
 if(data.success){
+  localStorage.setItem("name",name);
+  dispatch(setName());
 mysuccess(data.message);
 setTimeout(() => {
-  navigate("/alltasks")
+  navigate("/dashbord")
 }, 2000);
 }
 else{
@@ -46,20 +50,20 @@ catch(err){
 }
 }
 
-    setName("");
+    setname("");
     setEmail("");
     setPassword("");
   }
+
   const loginCheck=async()=>{
-    const response=await axios.post("https://task-back-rosy.vercel.app/user/islogin",{},{
+    const response=await axios.post("http://localhost:3000/user/islogin",{},{
       withCredentials:true
     });
-    const data=await response.data;
-    console.log(data)
+    const data=await response.data; 
     if(data.islogin==true){
       myerror("you are alredy login");
       setTimeout(()=>{
-        navigate("/alltasks");
+        navigate("/dashbord");
       },1500)
     }
   }
@@ -69,7 +73,6 @@ catch(err){
     loginCheck();
   })
 
-
   return (
     <div className="signin-container">
       <div className="signin-header">Sign In</div>
@@ -78,12 +81,12 @@ catch(err){
         <input
           type="text"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setname(e.target.value)}
         />
 
         <label>Email</label>
         <input
-          type="email"
+          type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />

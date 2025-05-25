@@ -26,16 +26,8 @@ const routs=createBrowserRouter([
         element:<Home/>
       },
       {
-        path:"alltasks",
-        element:<Alltask/>
-      },
-      {
         path:"dashbord",
         element:<><Add/><Alltask/></>
-      },
-      {
-        path:"addtask",
-        element:<Add/>
       },
       {
         path:"complete",

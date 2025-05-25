@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-function Foot() {
+const Foot = () => {
   return (
-    <div>
-      foot
-    </div>
-  )
-}
+    <footer className="app-footer">
+      Made by Satya
+    </footer>
+  );
+};
 
-export default Foot
+export default Foot;

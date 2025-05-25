@@ -7,7 +7,6 @@ function Alltask() {
   const navigate=useNavigate();
   const dispatch=useDispatch();
   const {loding,tasks,error}=useSelector((state)=>state.tasks)
-  
  const fetchTasks=async()=>{
   const abcd="";
   try{
@@ -44,7 +43,7 @@ catch(err){
   }
 
 
-  //done
+  //delete
   const handleIsDone=async(id,status)=>{
 const info={
   id:id,
@@ -66,45 +65,43 @@ catch(err){
 
 
 
-console.log(tasks)
+
 useEffect(()=>{
 fetchTasks();
 },[])
-  return (
-    <div>
-      <h3>My Tasks</h3>
-      {
-      
-tasks.length>=0? tasks.map((task)=>{
-  return(
-    <div key={task.id}>
-      <p>{task.title}</p>
-      <p>{task.task}</p>
-      <button onClick={()=>handleDelete(task.id)}>DELETE</button>
-      <button
-       className={task.isdone?"done":"notDone" } 
-onClick={()=>handleIsDone(task.id,task.isdone)}
+return (
+  <div>
+    <h3>My Tasks</h3>
+    <p>{loding ? "loading..." : ""}</p>
 
-       >
-        {/* {task.isdone?"DONE":"PENDING"} */}
-        DONE
-       </button>
-
+    <div className="task-container">
+      {tasks.length > 0
+        ? tasks.map((task) => (
+            <div key={task.id} className="task-box">
+              <p>{task.title}</p>
+              <p>{task.task}</p>
+              <button onClick={() => handleDelete(task.id)}>DELETE</button>
+              <button
+                className={task.isdone ? "done" : "notDone"}
+                onClick={() => handleIsDone(task.id, task.isdone)}
+              >
+                {task.isdone ? "DONE" : "PENDING"}
+              </button>
+            </div>
+          ))
+        : ""}
     </div>
-  )
-}):""
-      }
 
-     { tasks.length==0?
-     <div>
-Your dont have any task   
-<Link to="/addtask">
-Add some task
-</Link>
+    {tasks.length === 0 && (
+      <div>
+        You don't have any task{" "}
+        <Link to="/dashbord">
+          Add some task
+        </Link>
       </div>
-      :""}
-    </div>
-  )
+    )}
+  </div>
+);
 }
 
 export default Alltask

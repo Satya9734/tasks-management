@@ -1,11 +1,10 @@
-import React from 'react'
-
-function Home() {
+const Home = () => {
   return (
     <div>
-      welcome to the home page
+      <h1>Welcome to Task Manager</h1>
+      <p>Organize your day, finish tasks on time, and stay productive!</p>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

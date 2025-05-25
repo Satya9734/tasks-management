@@ -1,15 +1,14 @@
 import {createSlice,createAsyncThunk} from "@reduxjs/toolkit"
 import axios from "axios"
+
+//add
 export const addTasks=createAsyncThunk("addTasks",async(info,thunkAPI)=>{
 try{
 const response=await axios.post("https://task-back-rosy.vercel.app/dashbord/addtask",info,{
     withCredentials:true
 });
-// const response=await axios.post("http://localhost:3000/dashbord/addtask",info,{
-//     withCredentials:true
-// });
 const data=await response.data;
-return data.data;
+return data.tasks;
 }
 catch(err){
     const message =
@@ -29,7 +28,6 @@ const response=await axios.post("https://task-back-rosy.vercel.app/dashbord/allt
     withCredentials:true
 });
 const data=await response.data;
-
 return data.data;
 }
 catch(err){
@@ -48,7 +46,6 @@ const response=await axios.post("https://task-back-rosy.vercel.app/dashbord/dele
     withCredentials:true
 });
 const data=await response.data;
-console.log("data: ",data.data);
 return data.data;
 }
 catch(err){
@@ -68,7 +65,6 @@ const response=await axios.post("https://task-back-rosy.vercel.app/dashbord/isdo
 });
 
 const data=await response.data;
-console.log("data: ",data.data);
 return data.data;
 }
 catch(err){
@@ -84,13 +80,20 @@ return thunkAPI.rejectWithValue(message);
 const initialState={
 loding:false,
 tasks:[],
-error:false
+error:false,
+name:""
 }
 
 const tasksSlice=createSlice({
     name:"tasks",
     initialState,
     reducers:{
+        setName:(state)=>{
+            state.name=localStorage.getItem("name") || "";
+        },
+        removeName:(state)=>{
+            state.name="";
+        }
     },
     extraReducers:(builder)=>{
 builder.addCase(addTasks.pending,(state,action)=>{
@@ -171,4 +174,5 @@ builder.addCase(isDone.rejected,(state,action)=>{
 })
 
 // export {} tasksSlice.actions
+export const {setName,removeName } =tasksSlice.actions
 export default tasksSlice.reducer;

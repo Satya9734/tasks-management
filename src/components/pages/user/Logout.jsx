@@ -3,23 +3,22 @@ import React from 'react'
 import { ToastContainer } from 'react-toastify';
 import { myerror, mysuccess } from '../../tost';
 import {useNavigate} from "react-router-dom"
+import { useDispatch } from 'react-redux';
+import { removeName } from '../../../redux/tasksSlice';
 function Logout() {
+  const dispatch=useDispatch();
   const navigate=useNavigate();
   const handleLogout=async()=>{
 try{
-//   const response=await axios.post("http://localhost:3000/user/logout",{}, 
-//   {
-//   withCredentials:true
-// });
-  const response=await axios.post("https://task-back-rosy.vercel.app/user/logout",{}, 
+  const response=await axios.post("http://localhost:3000/user/logout",{}, 
   {
   withCredentials:true
 });
-
 const data=await response.data;
 if(data.success){
   mysuccess(data.message);
-  // localStorage.removeItem("name")
+ localStorage.removeItem("name")
+ dispatch(removeName())
   setTimeout(() => {
     navigate("/")
   }, 1000);

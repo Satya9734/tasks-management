@@ -3,8 +3,10 @@ import { ToastContainer } from 'react-toastify';
 import { myerror, mysuccess } from '../../tost';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
+import { setName } from '../../../redux/tasksSlice';
 function Login() {
+  const dispatch=useDispatch();
   const navigate=useNavigate();
   const [email,setEmail]=useState("");
   const [password,setPassword]=useState("");
@@ -25,9 +27,11 @@ const response=await axios.post("https://task-back-rosy.vercel.app/user/login",i
 });
 const data=response.data;
 if(data.success){
+  localStorage.setItem("name",data.name);
+  dispatch(setName());
   mysuccess(data.message);
   setTimeout(() => {
-    navigate("/alltasks");
+    navigate("/dashbord");
   }, 1000);
 }
 else{
@@ -52,11 +56,11 @@ setPassword("");
       withCredentials:true
     });
     const data=await response.data;
-    console.log(data)
+    
     if(data.islogin==true){
       myerror("you are alredy login");
       setTimeout(()=>{
-        navigate("/alltasks");
+        navigate("/dashbord");
       },1500)
     }
   }
@@ -65,7 +69,6 @@ setPassword("");
   useEffect(()=>{
     loginCheck();
   })
-
     return (
     <div>
   <div>login</div>
