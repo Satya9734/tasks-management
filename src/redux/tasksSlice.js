@@ -8,8 +8,7 @@ const response=await axios.post("https://task-back-rosy.vercel.app/dashbord/addt
     withCredentials:true
 });
 const data=await response.data;
-console.log("data after add:",data);
-return data.tasks;
+return data.data;
 }
 catch(err){
     const message =
