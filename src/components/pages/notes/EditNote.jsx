@@ -55,7 +55,7 @@ try{
 const response=await dispatch(updateNote(data)).unwrap();
 return mysuccess(response.message)
 }catch(err){
-  return myerror("some issue during updating")
+  return myerror(" some issue during updating");
 }
 }
 const navigate=useNavigate();
