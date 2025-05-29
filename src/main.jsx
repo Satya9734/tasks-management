@@ -17,9 +17,9 @@ import store from "./redux/store.js"
 import Complete from './components/pages/Complete.jsx'
 import Pending from './components/pages/Pending.jsx'
 import Note from './components/pages/Note.jsx'
-import SaveNote from './components/pages/notes/saveNote.jsx'
-import EditNote from './components/pages/notes/editNote.jsx'
-import ShowNotes from './components/pages/notes/showNotes.jsx'
+import SaveNote from './components/pages/notes/SaveNote.jsx'
+import EditNote from './components/pages/notes/EditNote.jsx'
+import ShowNotes from './components/pages/notes/ShowNotes.jsx'
 const routs=createBrowserRouter([
   {
     path:"/",
