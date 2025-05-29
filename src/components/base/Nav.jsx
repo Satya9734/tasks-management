@@ -6,28 +6,32 @@ import { useSelector } from 'react-redux';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Nav = () => {
-  const userName = useSelector((state) => state.tasks.name) || localStorage.getItem("name");
+  const userName = useSelector((state) => state.tasks.name)||localStorage.getItem("name");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
     <>
       <div className={`sidebar ${isMenuOpen ? 'open' : ''}`}>
-        <div className="sidebar-header">
+        {/* <div className="sidebar-header">
           <img src={logo} alt="Logo" className="logo" />
-          <span className="app-title">MyTasks</span>
+          <span className="app-title">Task Manager</span>
           <div className="menu-close" onClick={toggleMenu}>
             <FaTimes />
           </div>
-        </div>
+        </div> */}
+        {/* <img src={logo} alt="Logo" className="logo" /> */}
 
         <nav className="sidebar-links">
-          <NavLink to="/" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => isActive ? 'active-link' : ''}>Home</NavLink>
-          <NavLink to="/dashbord" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => isActive ? 'active-link' : ''}>Dashbord</NavLink>
-          <NavLink to="/complete" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => isActive ? 'active-link' : ''}>Complete Tasks</NavLink>
-          <NavLink to="/pending" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => isActive ? 'active-link' : ''}>Pending Tasks</NavLink>
-          <NavLink to="/user" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => isActive ? 'active-link' : ''}>User</NavLink>
-          <NavLink to="/user/logout" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => isActive ? 'active-link' : ''}>Log out</NavLink>
+          <NavLink to="/" onClick={() => setIsMenuOpen(false)}>Home</NavLink>
+          <NavLink to="/dashbord" onClick={() => setIsMenuOpen(false)}>Dashbord</NavLink>
+          <NavLink to="/complete" onClick={() => setIsMenuOpen(false)}>Complete Tasks</NavLink>
+          <NavLink to="/pending" onClick={() => setIsMenuOpen(false)}>Pending Tasks</NavLink>
+          <NavLink to="/note/save" onClick={() => setIsMenuOpen(false)}>Save Note</NavLink>
+          <NavLink to="/note/show" onClick={() => setIsMenuOpen(false)}>Show Notes</NavLink>
+          <NavLink to="/user" onClick={() => setIsMenuOpen(false)}>User</NavLink>
+          <NavLink to="/user/logout" onClick={() => setIsMenuOpen(false)}>Log out</NavLink>
+          
         </nav>
 
         <div className="sidebar-profile">

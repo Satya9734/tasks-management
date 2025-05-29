@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+
 import { createRoot } from 'react-dom/client'
 import './Main.css'
 
@@ -16,6 +16,10 @@ import {Provider} from "react-redux"
 import store from "./redux/store.js"
 import Complete from './components/pages/Complete.jsx'
 import Pending from './components/pages/Pending.jsx'
+import Note from './components/pages/Note.jsx'
+import SaveNote from './components/pages/notes/saveNote.jsx'
+import EditNote from './components/pages/notes/editNote.jsx'
+import ShowNotes from './components/pages/notes/showNotes.jsx'
 const routs=createBrowserRouter([
   {
     path:"/",
@@ -56,6 +60,28 @@ const routs=createBrowserRouter([
           {
             path:"logout",
             element:<Logout/>
+          },
+        ]
+      },
+      {
+        path:"note",
+        element:<Note/>,
+        children:[
+          {
+            path:"",
+            element:<Navigate to="show"/>
+          },
+          {
+            path:"save",
+            element:<SaveNote/>
+          },
+          {
+            path:"edit/:id",
+            element:<EditNote/>
+          },
+          {
+            path:"show",
+            element:<ShowNotes/>
           },
         ]
       }

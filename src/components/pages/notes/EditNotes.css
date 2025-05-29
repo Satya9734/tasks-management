@@ -1,0 +1,122 @@
+.note-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: #fefefe;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Heading */
+  .note-container h3 {
+    font-family: monospace;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .note-title {
+    width: 100%;
+    font-size: 1.5rem;
+    border: none;
+    outline: none;
+    font-family: monospace;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-bottom: 2px solid #eee;
+  }
+  
+  .note-body {
+    width: 100%;
+    min-height: 300px;
+    border: none;
+    resize: vertical;
+    font-family: monospace;
+    font-size: 1rem;
+    padding: 1rem;
+    white-space: pre;           /* Prevent line wrapping */
+    overflow-y: auto;           /* Enable vertical scroll */
+    outline: none;
+    background-color: #fafafa;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+  }
+  
+  /* Saving status */
+  .saving {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+  }
+  
+  .note-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  
+  /* Base button */
+  .note-button {
+    padding: 0.5rem 1.2rem;
+    font-family: monospace;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #eee;
+    transition: background 0.2s ease;
+    min-width: 100px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  
+  /* Hover effect for base */
+  .note-button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Specific buttons */
+  .note-button.clear {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .note-button.clear:hover {
+    background-color: #d32f2f;
+  }
+  
+  .note-button.update {
+    background-color: #2196f3;
+    color: white;
+  }
+  
+  .note-button.update:hover {
+    background-color: #1976d2;
+  }
+  
+  .note-button.delete {
+    background-color: #ff9800;
+    color: white;
+  }
+  
+  .note-button.delete:hover {
+    background-color: #fb8c00;
+  }
+  
+  /* Responsive fix for small screens */
+  @media (max-width: 480px) {
+    .note-actions {
+      justify-content: space-between;
+    }
+  
+    .note-button {
+      min-width: 90px;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.8rem;
+    }
+  }
+  

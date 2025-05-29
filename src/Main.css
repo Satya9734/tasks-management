@@ -426,7 +426,7 @@ button:hover {
 
 .outlet-container {
   margin-left: 220px; /* same width as navbar */
-  padding: 20px;
+  padding: 10px;
   padding-bottom: 100px; /* space for footer */
 }
 
@@ -434,7 +434,7 @@ button:hover {
 @media (max-width: 768px) {
   .outlet-container {
     margin-left: 0;
-    margin-top: 70px; /* height of navbar on top */
+    margin-top: 10px; /* height of navbar on top */
     padding: 15px;
   }
 }

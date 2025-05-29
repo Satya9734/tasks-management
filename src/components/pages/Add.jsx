@@ -32,7 +32,7 @@ const [message,setmessage]=useState(false);
       setmessage(true);
     }
     catch(err){
-myerror("my code my error "+err);
+myerror(err);
 setTimeout(()=>{
 navigate("/user/login");
 },1500)

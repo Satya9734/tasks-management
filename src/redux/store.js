@@ -1,8 +1,10 @@
 import {configureStore} from "@reduxjs/toolkit"
-import tasksSlice from "./tasksSlice"
+import tasksSlice from "./tasksSlice.js"
+import noteSlice from "./noteSlice.js"
 const store =configureStore({
     reducer:{
-tasks:tasksSlice
+tasks:tasksSlice,
+notes:noteSlice
     }
 })
 

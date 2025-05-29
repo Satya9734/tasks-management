@@ -1,0 +1,164 @@
+/* .note-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: #fefefe;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .note-title {
+    width: 100%;
+    font-size: 1.5rem;
+    border: none;
+    outline: none;
+    font-family: monospace;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-bottom: 2px solid #eee;
+  }
+  
+  .note-body {
+    width: 100%;
+    min-height: 300px;
+    border: none;
+    resize: vertical;
+    font-family: monospace;
+    font-size: 1rem;
+    padding: 1rem;
+    white-space: pre-wrap;
+    outline: none;
+    background-color: #fafafa;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+  }
+  
+  .note-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+  
+  .note-button {
+    padding: 0.5rem 1.2rem;
+    font-family: monospace;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #edabab;
+    transition: background 0.2s ease;
+  }
+  
+  .note-button:hover {
+    background-color: #ddd;
+  }
+  
+  .note-button.save {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .note-button.save:hover {
+    background-color: #45a047;
+  }
+   */
+
+
+   .note-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: #fefefe;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Heading */
+  .note-container h3 {
+    font-family: monospace;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .note-title {
+    width: 100%;
+    font-size: 1.5rem;
+    border: none;
+    outline: none;
+    font-family: monospace;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-bottom: 2px solid #eee;
+  }
+  
+  .note-body {
+    width: 100%;
+    min-height: 300px;
+    border: none;
+    resize: vertical;
+    font-family: monospace;
+    font-size: 1rem;
+    padding: 1rem;
+    white-space: pre;           /* Prevent line wrapping */
+    overflow-y: auto;           /* Enable vertical scroll */
+    outline: none;
+    background-color: #fafafa;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+  }
+  
+  /* Saving status */
+  .saving {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+  }
+  
+  .note-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    flex-wrap: nowrap;        /* Prevent wrapping */
+    overflow-x: auto;         /* Allow horizontal scrolling if needed */
+  }
+  
+  /* Make sure buttons never overflow on small screens */
+  .note-button {
+    padding: 0.5rem 1.2rem;
+    font-family: monospace;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #eee;
+    transition: background 0.2s ease;
+    min-width: 100px;
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
+  
+  .note-button:hover {
+    background-color: #ddd;
+  }
+  
+  .note-button.save {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .note-button.save:hover {
+    background-color: #45a047;
+  }
+  
+  .note-button.clear {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .note-button.clear:hover {
+    background-color: #d32f2f;
+  }
+  /* Removed responsive rule that stacked buttons */
+  

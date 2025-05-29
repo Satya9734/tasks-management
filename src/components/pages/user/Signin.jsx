@@ -61,10 +61,10 @@ catch(err){
     });
     const data=await response.data; 
     if(data.islogin==true){
-      myerror("you are alredy login");
+     
       setTimeout(()=>{
         navigate("/dashbord");
-      },1500)
+      },500)
     }
   }
 
